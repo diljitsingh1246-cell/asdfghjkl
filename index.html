@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Coach – Learn Creative Skills Like a Pro</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--                    NAVBAR                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Pixel<span class="accent">Coach</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#courses" class="nav-link">Courses</a></li>
+        <li><a href="#mentors" class="nav-link">Mentors</a></li>
+        <li><a href="#tools" class="nav-link">Tools</a></li>
+        <li><a href="#" class="nav-link" id="dashboardNavBtn" style="display:none;">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <div id="authButtons">
+          <button class="btn btn-ghost" id="loginBtn">Log In</button>
+          <button class="btn btn-primary" id="signupBtn">Get Started</button>
+        </div>
+        <div id="userMenu" style="display:none;" class="user-menu">
+          <img src="" alt="avatar" class="user-avatar" id="userAvatar" />
+          <span class="user-name" id="userName"></span>
+          <button class="btn btn-ghost btn-sm" id="logoutBtn">Logout</button>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--                  HERO SECTION                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>10,000+ students enrolled</span>
+      </div>
+      <h1 class="hero-title">
+        Learn Creative Skills<br/>
+        <span class="gradient-text">Like a Pro</span>
+      </h1>
+      <p class="hero-subtitle">
+        Master Video Editing, Photo Editing & Graphic Design with industry-led courses,
+        real projects, and expert mentors — all in one platform.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" id="heroStartBtn">
+          <i class="fas fa-rocket"></i> Start Learning Free
+        </button>
+        <a href="#courses" class="btn btn-outline btn-lg">
+          <i class="fas fa-compass"></i> Explore Courses
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Courses</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Mentors</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Satisfaction</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-video">
+        <i class="fas fa-play-circle"></i>
+        <span>Video Editing</span>
+        <div class="progress-mini"><div style="width:78%"></div></div>
+      </div>
+      <div class="floating-card card-photo">
+        <i class="fas fa-camera"></i>
+        <span>Photo Editing</span>
+        <div class="progress-mini"><div style="width:55%"></div></div>
+      </div>
+      <div class="floating-card card-design">
+        <i class="fas fa-pen-nib"></i>
+        <span>Graphic Design</span>
+        <div class="progress-mini"><div style="width:40%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--               COURSE FILTER + CARDS             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="courses-section" id="courses">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-tag">What You'll Learn</p>
+        <h2 class="section-title">Choose Your Creative Path</h2>
+        <p class="section-sub">From beginner to advanced — structured, practical, and industry-relevant.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Courses</button>
+        <button class="filter-btn" data-filter="video">🎬 Video</button>
+        <button class="filter-btn" data-filter="photo">📸 Photo</button>
+        <button class="filter-btn" data-filter="graphic">🎨 Graphic</button>
+      </div>
+
+      <!-- Course Cards -->
+      <div class="courses-grid" id="coursesGrid">
+
+        <div class="course-card" data-category="video" data-course="video">
+          <div class="card-glow glow-video"></div>
+          <div class="card-icon-wrap icon-video">
+            <i class="fas fa-film"></i>
+          </div>
+          <div class="card-badge">Most Popular</div>
+          <h3 class="card-title">Video Editing</h3>
+          <p class="card-desc">Cut, colour-grade, and craft cinematic stories with DaVinci Resolve & Premiere Pro.</p>
+          <div class="card-meta">
+            <span><i class="fas fa-layer-group"></i> 24 Modules</span>
+            <span><i class="fas fa-clock"></i> 36h Content</span>
+            <span><i class="fas fa-signal"></i> All Levels</span>
+          </div>
+          <div class="card-levels">
+            <span class="level beginner">Beginner</span>
+            <span class="level-arrow">→</span>
+            <span class="level intermediate">Intermediate</span>
+            <span class="level-arrow">→</span>
+            <span class="level advanced">Advanced</span>
+          </div>
+          <button class="btn btn-primary card-btn" onclick="openCourse('video')">
+            Explore Course <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="course-card" data-category="photo" data-course="photo">
+          <div class="card-glow glow-photo"></div>
+          <div class="card-icon-wrap icon-photo">
+            <i class="fas fa-camera-retro"></i>
+          </div>
+          <h3 class="card-title">Photo Editing</h3>
+          <p class="card-desc">Retouch portraits, build composites, and master colour science in Lightroom & Photoshop.</p>
+          <div class="card-meta">
+            <span><i class="fas fa-layer-group"></i> 18 Modules</span>
+            <span><i class="fas fa-clock"></i> 28h Content</span>
+            <span><i class="fas fa-signal"></i> All Levels</span>
+          </div>
+          <div class="card-levels">
+            <span class="level beginner">Beginner</span>
+            <span class="level-arrow">→</span>
+            <span class="level intermediate">Intermediate</span>
+            <span class="level-arrow">→</span>
+            <span class="level advanced">Advanced</span>
+          </div>
+          <button class="btn btn-primary card-btn" onclick="openCourse('photo')">
+            Explore Course <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="course-card" data-category="graphic" data-course="graphic">
+          <div class="card-glow glow-graphic"></div>
+          <div class="card-icon-wrap icon-graphic">
+            <i class="fas fa-pen-nib"></i>
+          </div>
+          <h3 class="card-title">Graphic Designing</h3>
+          <p class="card-desc">Design stunning brands, social media, and UI layouts with Figma, Illustrator & Canva.</p>
+          <div class="card-meta">
+            <span><i class="fas fa-layer-group"></i> 20 Modules</span>
+            <span><i class="fas fa-clock"></i> 32h Content</span>
+            <span><i class="fas fa-signal"></i> All Levels</span>
+          </div>
+          <div class="card-levels">
+            <span class="level beginner">Beginner</span>
+            <span class="level-arrow">→</span>
+            <span class="level intermediate">Intermediate</span>
+            <span class="level-arrow">→</span>
+            <span class="level advanced">Advanced</span>
+          </div>
+          <button class="btn btn-primary card-btn" onclick="openCourse('graphic')">
+            Explore Course <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--                MENTOR SECTION                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="mentors-section" id="mentors">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-tag">Expert Guidance</p>
+        <h2 class="section-title">Learn From The Best</h2>
+        <p class="section-sub">Real industry professionals who've worked with top brands and studios.</p>
+      </div>
+      <div class="mentors-grid">
+
+        <div class="mentor-card">
+          <div class="mentor-avatar-wrap">
+            <div class="mentor-avatar" style="background: linear-gradient(135deg,#f97316,#ec4899)">AK</div>
+            <div class="mentor-badge-dot"></div>
+          </div>
+          <h4 class="mentor-name">Arjun Kapoor</h4>
+          <p class="mentor-role">Video Production Expert</p>
+          <p class="mentor-bio">8 years in film & commercial editing. Works with Netflix India & Zee5 productions.</p>
+          <div class="mentor-skills">
+            <span>DaVinci Resolve</span><span>Premiere Pro</span><span>After Effects</span>
+          </div>
+          <div class="mentor-stats">
+            <span><i class="fas fa-users"></i> 3.2k students</span>
+            <span><i class="fas fa-star"></i> 4.9</span>
+          </div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar-wrap">
+            <div class="mentor-avatar" style="background: linear-gradient(135deg,#06b6d4,#6366f1)">SM</div>
+            <div class="mentor-badge-dot"></div>
+          </div>
+          <h4 class="mentor-name">Sara Mehta</h4>
+          <p class="mentor-role">Photo Retouching Specialist</p>
+          <p class="mentor-bio">Featured in Vogue India. Trained 5,000+ photographers worldwide via online workshops.</p>
+          <div class="mentor-skills">
+            <span>Lightroom</span><span>Photoshop</span><span>Capture One</span>
+          </div>
+          <div class="mentor-stats">
+            <span><i class="fas fa-users"></i> 5.1k students</span>
+            <span><i class="fas fa-star"></i> 4.8</span>
+          </div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar-wrap">
+            <div class="mentor-avatar" style="background: linear-gradient(135deg,#10b981,#3b82f6)">RV</div>
+            <div class="mentor-badge-dot"></div>
+          </div>
+          <h4 class="mentor-name">Rohan Verma</h4>
+          <p class="mentor-role">Brand & UI Designer</p>
+          <p class="mentor-bio">Ex-Google Design Intern. Created visual identities for 80+ startups across Asia.</p>
+          <div class="mentor-skills">
+            <span>Figma</span><span>Illustrator</span><span>Canva Pro</span>
+          </div>
+          <div class="mentor-stats">
+            <span><i class="fas fa-users"></i> 4.7k students</span>
+            <span><i class="fas fa-star"></i> 4.9</span>
+          </div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar-wrap">
+            <div class="mentor-avatar" style="background: linear-gradient(135deg,#a855f7,#f97316)">PP</div>
+            <div class="mentor-badge-dot"></div>
+          </div>
+          <h4 class="mentor-name">Priya Patel</h4>
+          <p class="mentor-role">Motion Graphics Artist</p>
+          <p class="mentor-bio">10 years of motion design for TV, OTT & ads. Former lead at Leo Burnett Mumbai.</p>
+          <div class="mentor-skills">
+            <span>After Effects</span><span>Cinema 4D</span><span>Blender</span>
+          </div>
+          <div class="mentor-stats">
+            <span><i class="fas fa-users"></i> 2.9k students</span>
+            <span><i class="fas fa-star"></i> 5.0</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--               TOOLS & RESOURCES                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="tools-section" id="tools">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-tag">Resources</p>
+        <h2 class="section-title">Your Creative Toolkit</h2>
+        <p class="section-sub">Essential tools used by professionals worldwide — get started for free.</p>
+      </div>
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#7c3aed;">
+            <span style="font-size:1.8rem;">🎨</span>
+          </div>
+          <div class="tool-info">
+            <h4>Canva</h4>
+            <p>Drag-and-drop design for social media, presentations & print.</p>
+            <div class="tool-tags"><span>Free Plan</span><span>Web App</span></div>
+          </div>
+          <a href="https://canva.com" target="_blank" class="btn btn-outline btn-sm">Visit <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#0d99ff;">
+            <span style="font-size:1.8rem;">🖥️</span>
+          </div>
+          <div class="tool-info">
+            <h4>Figma</h4>
+            <p>Collaborative UI/UX and vector design platform used by top teams.</p>
+            <div class="tool-tags"><span>Free Tier</span><span>Web + Desktop</span></div>
+          </div>
+          <a href="https://figma.com" target="_blank" class="btn btn-outline btn-sm">Visit <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#ff0000;">
+            <span style="font-size:1.8rem;">📹</span>
+          </div>
+          <div class="tool-info">
+            <h4>DaVinci Resolve</h4>
+            <p>Professional video editing & colour grading — completely free version available.</p>
+            <div class="tool-tags"><span>Free Version</span><span>Windows/Mac/Linux</span></div>
+          </div>
+          <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" class="btn btn-outline btn-sm">Download <i class="fas fa-download"></i></a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#1473e6;">
+            <span style="font-size:1.8rem;">🖼️</span>
+          </div>
+          <div class="tool-info">
+            <h4>Adobe Photoshop</h4>
+            <p>Industry-standard photo editing, compositing, and digital art creation.</p>
+            <div class="tool-tags"><span>Paid</span><span>Trial Available</span></div>
+          </div>
+          <a href="https://adobe.com/photoshop" target="_blank" class="btn btn-outline btn-sm">Learn More <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#ff9a00;">
+            <span style="font-size:1.8rem;">✨</span>
+          </div>
+          <div class="tool-info">
+            <h4>Adobe Lightroom</h4>
+            <p>Non-destructive photo organisation and colour-grading for photographers.</p>
+            <div class="tool-tags"><span>Paid</span><span>Mobile Free</span></div>
+          </div>
+          <a href="https://adobe.com/lightroom" target="_blank" class="btn btn-outline btn-sm">Learn More <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-logo" style="background:#ff5f00;">
+            <span style="font-size:1.8rem;">🎞️</span>
+          </div>
+          <div class="tool-info">
+            <h4>Adobe Premiere Pro</h4>
+            <p>Timeline-based video editing used by Hollywood editors and YouTubers alike.</p>
+            <div class="tool-tags"><span>Paid</span><span>Trial Available</span></div>
+          </div>
+          <a href="https://adobe.com/premiere" target="_blank" class="btn btn-outline btn-sm">Learn More <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--                    FOOTER                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="logo-icon">⬡</span> Pixel<span class="accent">Coach</span></a>
+        <p>Premium creative education for the next generation of designers and editors.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Courses</h5>
+          <a href="#">Video Editing</a>
+          <a href="#">Photo Editing</a>
+          <a href="#">Graphic Design</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h5>Support</h5>
+          <a href="#">Help Centre</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PixelCoach. Made with ♥ for creators.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              COURSE MODAL (detail page)         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="courseModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('courseModal')"><i class="fas fa-times"></i></button>
+      <div id="courseModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              VIDEO PLAYER MODAL                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-content modal-video-content">
+      <button class="modal-close" onclick="closeVideoModal()"><i class="fas fa-times"></i></button>
+      <div class="video-wrapper">
+        <iframe id="videoFrame" src="" frameborder="0" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              AUTH MODAL                         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-content modal-auth">
+      <button class="modal-close" onclick="closeModal('authModal')"><i class="fas fa-times"></i></button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab" onclick="switchTab('login')">Login</button>
+        <button class="auth-tab" id="signupTab" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+      <!-- Login Form -->
+      <div class="auth-form" id="loginForm">
+        <h3>Welcome Back 👋</h3>
+        <p class="auth-sub">Continue your creative journey</p>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" class="form-input" />
+        </div>
+        <p class="auth-error" id="loginError"></p>
+        <button class="btn btn-primary btn-full" onclick="handleLogin()">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn btn-google" onclick="handleGoogleLogin()">
+          <i class="fab fa-google"></i> Continue with Google
+        </button>
+      </div>
+      <!-- Signup Form -->
+      <div class="auth-form" id="signupForm" style="display:none;">
+        <h3>Join PixelCoach 🚀</h3>
+        <p class="auth-sub">Start your creative career today</p>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="signupName" placeholder="Your Name" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Min. 6 characters" class="form-input" />
+        </div>
+        <p class="auth-error" id="signupError"></p>
+        <button class="btn btn-primary btn-full" onclick="handleSignup()">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn btn-google" onclick="handleGoogleLogin()">
+          <i class="fab fa-google"></i> Continue with Google
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              USER DASHBOARD                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="dashboardModal">
+    <div class="modal-content modal-dashboard">
+      <button class="modal-close" onclick="closeModal('dashboardModal')"><i class="fas fa-times"></i></button>
+      <div class="dashboard-header">
+        <div class="dash-avatar" id="dashAvatar"></div>
+        <div>
+          <h2 id="dashName">Welcome back!</h2>
+          <p id="dashEmail" class="dash-email"></p>
+        </div>
+      </div>
+      <div class="dash-stats-row">
+        <div class="dash-stat-card">
+          <i class="fas fa-book-open"></i>
+          <span class="ds-num" id="dashLessons">0</span>
+          <span class="ds-label">Lessons Done</span>
+        </div>
+        <div class="dash-stat-card">
+          <i class="fas fa-trophy"></i>
+          <span class="ds-num" id="dashQuizScore">0%</span>
+          <span class="ds-label">Quiz Avg.</span>
+        </div>
+        <div class="dash-stat-card">
+          <i class="fas fa-fire"></i>
+          <span class="ds-num" id="dashStreak">0</span>
+          <span class="ds-label">Day Streak</span>
+        </div>
+      </div>
+      <h4 class="dash-section-title">Course Progress</h4>
+      <div class="dash-progress-list" id="dashProgressList"></div>
+      <h4 class="dash-section-title">Recent Quiz Results</h4>
+      <div class="dash-quiz-list" id="dashQuizList">
+        <p class="dash-empty">No quizzes taken yet. Enrol in a course to begin!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              QUIZ MODAL                         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="quizModal">
+    <div class="modal-content modal-quiz">
+      <button class="modal-close" onclick="closeModal('quizModal')"><i class="fas fa-times"></i></button>
+      <div id="quizBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="firebase-config.js"></script>
+  <script src="data.js"></script>
+  <script src="ui.js"></script>
+  <script src="auth.js" type="module"></script>
+  <script src="quiz.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
