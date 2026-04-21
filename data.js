@@ -16,12 +16,7 @@ const COURSES = {
       beginner: {
         label: "🟢 Beginner",
         modules: [
-        { 
-  id: "v1", 
-  title: "Install Canva in Windows and Mac OS", // Updated title based on the video
-  duration: "2:28", // Actual duration of this specific video
-  videoId: "qcvOclIhwW0" // New Video ID
-}
+  { id: "v1", title: "Introduction to Video Editing", duration: "12 min", videoId: "https://www.youtube.com/embed/NMF2dtj4MEg?si=z8Qp0zScB1miO2kg"  }
           { id: "v2", title: "Understanding Timelines & Cuts", duration: "18 min", videoId: "AQpHLvzSATs" },
           { id: "v3", title: "Working with B-roll Footage", duration: "22 min", videoId: "AQpHLvzSATs" },
           { id: "v4", title: "Audio Basics & Syncing", duration: "15 min", videoId: "AQpHLvzSATs" },
